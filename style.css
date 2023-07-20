@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/96/415/604/mario-background-wallpaper-preview.jpg');
+    animation: background-move 3s infinite linear;
+    background-size: cover;
+}
+
+@keyframes background-move {
+    0% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+.background-game {
+    width: 100%;
+    height: 100vh;
+    border: 10px solid rgb(121, 117, 117);
+    border-bottom: 130px solid rgb(121, 117, 117);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.tubo {
+    position: absolute;
+    width: 100px;
+    bottom: 0;
+    animation: canosanimation 1s linear infinite; 
+}
+
+.player {
+    position: absolute;
+    width: 150px;
+    bottom: 0;
+}
+
+.jump {
+    animation: player_jump 500ms ease-out; 
+}
+
+.welcome-message {
+    margin: auto;
+    position: relative;
+    width: 80%;
+    background-color: white;
+    margin-top: 2vh;
+    padding: 4vh;
+    border-radius: 1vw;
+    box-shadow: 0vw 0vw 2vw black;
+    text-align: center;
+}
+
+.welcome-message button {
+    background-color: darkslateblue;
+    color: white;
+    border-radius: 1vw;
+    margin: auto;
+    padding: 1vw;
+    margin-top: 4vh;
+}
+
+@keyframes canosanimation {
+    from {
+        right: -13%;
+    }
+    to {
+        right: 100%
+    }
+}
+
+@keyframes player_jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 200px;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    60% {
+        bottom: 200px;
+    }
+    
+    100% {
+        bottom: 0;
+    }
+}
