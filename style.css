@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/96/415/604/mario-background-wallpaper-preview.jpg');
+    background-image: linear-gradient(to left, rgb(120, 202, 250), rgb(97, 172, 241));
     animation: background-move 3s infinite linear;
     background-size: cover;
 }
@@ -24,11 +24,27 @@ body {
 .background-game {
     width: 100%;
     height: 100vh;
-    border: 10px solid rgb(121, 117, 117);
-    border-bottom: 130px solid rgb(121, 117, 117);
+    border: 10px solid rgb(229, 233, 233);
+    border-bottom: 130px solid rgb(92, 69, 2);
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+}
+
+.clouds {
+    width: 100%;
+    animation: clouds 3s infinite linear;
+    position: absolute;
+}
+
+@keyframes clouds {
+    0% {
+        right: -90%;
+    }
+
+    100% {
+        right: 120%;
+    }
 }
 
 .tubo {

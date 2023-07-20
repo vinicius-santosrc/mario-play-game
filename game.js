@@ -2,9 +2,11 @@
 const player = document.querySelector('.player')
 const tubo = document.querySelector('.tubo')
 const body = document.querySelector('body')
+const clouds = document.querySelector('.clouds')
 const button = document.querySelector('.initgame')
 function startgame() {
-        tubo.style.right = '0'
+        tubo.style.right = '-10%'
+        tubo.style.display = 'block'
         tubo.style.animation = 'canosanimation 1s linear infinite'
 
         //FAZER MARIO PULAR
@@ -19,8 +21,9 @@ function startgame() {
         //LOOP GAME
         const loop = setInterval(() => {
             const TUBO_POSITION_X = tubo.offsetLeft;
-            const BACKGROUND_X = body.offsetLeft
+            const BACKGROUND_X = body.offsetLeft;
             const PLAYER_POSITION = +window.getComputedStyle(player).bottom.replace('px', '');
+            const CLOUDS_POSITION = clouds.offsetLeft;
             //console.log(TUBO_POSITION_X)
             //console.log(PLAYER_POSITION)
             cont = 0
@@ -31,6 +34,9 @@ function startgame() {
 
                 player.style.animation = 'none';
                 player.style.bottom = `${PLAYER_POSITION}px`
+
+                clouds.style.animation = 'none'
+                clouds.style.right = `${CLOUDS_POSITION}px`
 
                 body.style.backgroundPosition = `${BACKGROUND_X}px`
                 body.style.animation = 'none'
@@ -45,6 +51,7 @@ function startgame() {
 }
 
 tubo.style.right = '0'
+tubo.style.display = 'none'
 tubo.style.animation = 'none'
 
 document.addEventListener('keydown', () => {
