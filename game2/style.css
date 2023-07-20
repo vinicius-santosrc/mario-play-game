@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Century Gothic, AppleGothic, CenturyGothic, sans-serif;
+    box-sizing: border-box;
+}
+
+.window-game {
+    background-image: linear-gradient(50deg, #77d8f8, #add8e6);
+    height: 900px;
+    width: 1200px;
+    margin: 10px auto;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.ground {
+    background-image: url('imgs/ground.png');
+    width: 300vw;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0px;
+}
+
+.mario {
+    width: 170px;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin-bottom: 100px;
+    margin-left: 0vw;
+}
+
+@keyframes mariowalk {
+    0% {
+        margin-left: 0vw;
+    }
+
+    100% {
+        margin-left: 300vw;
+    }
+}
+
+.tubo {
+    width: 140px;
+    margin-left: 900px;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    margin-bottom: 100px;
+}
+
+.title {
+    margin: auto;
+    width: 500px;
+    text-align: center;
+    padding: 2vw;
+    background-color: red;
+}
+
+.clouds {
+    position: absolute;
+    height: 300px;
+}
+
+.jump {
+    animation: playerjump 0.5s infinite linear;
+}
+
+@keyframes playerjump {
+    0% {
+        margin-bottom: 100px;
+    }
+
+    40%{
+        margin-bottom: 300px;
+    }
+
+    50%{
+        margin-bottom: 300px;
+    }
+    60%{
+        margin-bottom: 300px;
+    }
+
+    100% {
+        margin-bottom: 100px;
+    }
+}
