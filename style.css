@@ -1,117 +1,253 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    font-family: Century Gothic, AppleGothic, CenturyGothic, sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-    background-image: linear-gradient(to left, rgb(120, 202, 250), rgb(97, 172, 241));
-    animation: background-move 3s infinite linear;
+.window-game {
+    background-image: linear-gradient(50deg, #77d8f8, #add8e6);
+    /*background-image: url('imgs/background.png');*/
+    background-repeat: no-repeat;
     background-size: cover;
-}
-
-@keyframes background-move {
-    0% {
-        background-position: right;
-    }
-
-    100% {
-        background-position: left;
-    }
-}
-
-.background-game {
-    width: 100%;
-    height: 100vh;
-    border: 10px solid rgb(229, 233, 233);
-    border-bottom: 130px solid rgb(92, 69, 2);
-    margin: 0 auto;
+    background-position: left;
+    height: 900px;
+    width: 1200px;
+    margin: 10px auto;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
 }
 
-.clouds {
-    width: 100%;
-    animation: clouds 3s infinite linear;
-    position: absolute;
+.border-enter {
+    border: 10px solid black;
+    margin: auto;
+    width: 1200px;
+    height: 900px;
+    animation: borderstart 1.5s ease-in-out;
 }
 
-@keyframes clouds {
+@keyframes borderstart {
     0% {
-        right: -90%;
+        margin: 500px solid black;
+        border: 30px solid black;
+        margin-top: 900px;
+    }
+    50% {
+        margin-top: 0px;
+    }
+    60% {
+        margin-top: 20px;
+    }
+    65% {
+        margin-top: 18px;
+    }
+    80% {
+        margin-top: 10px;
+    }
+    100% {
+        margin-top: 0px;
+    }
+}
+
+.ground {
+    background-image: url('imgs/ground.png');
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0px;
+}
+
+.block {
+    position: absolute;
+    width: 50px;
+    bottom: 300px;
+    left: 500px;
+}
+.block:nth-child(4) {
+    position: absolute;
+    width: 50px;
+    bottom: 300px;
+    left: 600px;
+}
+.block:nth-child(5) {
+    position: absolute;
+    width: 50px;
+    bottom: 300px;
+    left: 550px;
+}
+
+.enemy {
+    position: absolute;
+    bottom: 100px;
+    width: 60px;
+    margin-left: 1000px;
+    animation: enemy 10s linear infinite;
+}
+
+.cogumelo {
+    width: 50px;
+    position: absolute;
+    bottom: 97px;
+    right: 400px;
+}
+
+.flor {
+    width: 50px;
+    position: absolute;
+    bottom: 100px;
+    right: 300px;
+}
+
+.pena {
+    width: 50px;
+    position: absolute;
+    bottom: 100px;
+    right: 200px;
+}
+
+@keyframes enemy {
+    0% {
+        margin-left: 1000px;
+    }
+    49%{
+        transform: rotateY(0);
+    }
+    50% {
+        margin-left: 0px;
+        transform: rotateY(180deg);
+    }
+    99%{
+        
+        transform: rotateY(180deg);
+    }
+    100% {
+        margin-left: 1000px;
+        transform: rotateY(0);
+    }
+}
+
+.mario {
+    width: 80px;
+    bottom: 0;
+    position: absolute;
+    z-index: 10;
+    margin-bottom: 100px;
+    margin-left: 0vw;
+}
+
+@keyframes mariowalk {
+    0% {
+        margin-left: 0vw;
     }
 
     100% {
-        right: 120%;
+        margin-left: 300vw;
     }
 }
 
 .tubo {
-    position: absolute;
-    width: 100px;
+    width: 140px;
+    margin-left: 900px;
     bottom: 0;
-    animation: canosanimation 1s linear infinite; 
+    right: 0;
+    position: absolute;
+    margin-bottom: 100px;
 }
 
-.player {
+.title {
+    width: 100%;
+    height: 900px;
+    text-align: left;
+    padding: 2vw;
+    font-size: 30px;
+    color: #ffff;
+    background-image: linear-gradient(to right, rgb(50, 173, 255), rgb(44, 197, 243));
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1555;
     position: absolute;
-    width: 150px;
-    bottom: 0;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 3px 1px 1px black;
+}
+
+.title img {
+    width: 50px;
+}
+
+.title p {
+    margin-left: 50px;
+}
+
+.title a {
+    color: gray;
+}
+
+.animate_start {
+    position: relative;
+    animation: startedgame 1s ease-in-out;
+}
+
+@keyframes startedgame {
+    0% {
+        z-index: 100;
+        border: 30vw solid black;
+    }
+    100% {
+        
+    }
+}
+
+.title button {
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 1px 1px black;
+    font-size: 50px;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.clouds {
+    position: absolute;
+    height: 300px;
+    animation: clouds 30s infinite linear;
 }
 
 .jump {
-    animation: player_jump 500ms ease-out; 
+    animation: playerjump 0.4s infinite linear;
 }
 
-.welcome-message {
-    margin: auto;
-    position: relative;
-    width: 80%;
-    background-color: white;
-    margin-top: 2vh;
-    padding: 4vh;
-    border-radius: 1vw;
-    box-shadow: 0vw 0vw 2vw black;
-    text-align: center;
-}
-
-.welcome-message button {
-    background-color: darkslateblue;
-    color: white;
-    border-radius: 1vw;
-    margin: auto;
-    padding: 1vw;
-    margin-top: 4vh;
-}
-
-@keyframes canosanimation {
-    from {
-        right: -13%;
-    }
-    to {
-        right: 100%
-    }
-}
-
-@keyframes player_jump {
+@keyframes clouds {
     0% {
-        bottom: 0;
+        right: -58%;
     }
 
-    40% {
-        bottom: 200px;
-    }
-
-    50% {
-        bottom: 200px;
-    }
-
-    60% {
-        bottom: 200px;
-    }
-    
     100% {
-        bottom: 0;
+        right: 100%;
+    }
+}
+
+@keyframes playerjump {
+    0% {
+        margin-bottom: 100px;
+    }
+
+    40%{
+        margin-bottom: 230px;
+    }
+
+    50%{
+        margin-bottom: 230px;
+    }
+    60%{
+        margin-bottom: 230px;
+    }
+
+    100% {
+        margin-bottom: 100px;
     }
 }
